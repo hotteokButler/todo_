@@ -15,3 +15,4 @@
 
 - localStorage
 - react-icons
+- uuid

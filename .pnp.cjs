@@ -14660,6 +14660,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@pmmmwh/react-refresh-webpack-plugin", "virtual:7c8a25dc346b8378a6277556a9b3c82a19180a279996c9a3368587f4edd56d8faddda0a6fe1cf0134533bb4d53d9c3ea27de432c03e0ba2daa4f4d4e54cb0309#npm:0.5.10"],\
             ["@svgr/webpack", "npm:5.5.0"],\
             ["@types/eslint", null],\
+            ["@types/eslint-config-react-app", null],\
             ["@types/react", null],\
             ["@types/typescript", null],\
             ["babel-jest", "virtual:7c8a25dc346b8378a6277556a9b3c82a19180a279996c9a3368587f4edd56d8faddda0a6fe1cf0134533bb4d53d9c3ea27de432c03e0ba2daa4f4d4e54cb0309#npm:27.5.1"],\
@@ -14711,6 +14712,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["workbox-webpack-plugin", "virtual:7c8a25dc346b8378a6277556a9b3c82a19180a279996c9a3368587f4edd56d8faddda0a6fe1cf0134533bb4d53d9c3ea27de432c03e0ba2daa4f4d4e54cb0309#npm:6.5.4"]\
           ],\
           "packagePeers": [\
+            "@types/eslint-config-react-app",\
             "@types/eslint",\
             "@types/react",\
             "@types/typescript",\

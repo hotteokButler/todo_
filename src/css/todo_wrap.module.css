@@ -1,0 +1,11 @@
+@charset 'utf-8';
+.todo_lis_wrap {
+  background: #433d43;
+  overflow: hidden;
+}
+.top {
+}
+.btm {
+  padding: 1rem 0.8rem;
+  background: #222;
+}

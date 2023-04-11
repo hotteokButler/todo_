@@ -99,6 +99,7 @@ menu,
 nav,
 section {
   display: block;
+  box-sizing: border-box;
 }
 body {
   line-height: 1;
@@ -121,4 +122,19 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+button,
+input {
+  outline: none;
+  border: none;
+  background: transparent;
+}
+button {
+  cursor: pointer;
+}
+li,
+ol,
+ul {
+  list-style: none;
 }

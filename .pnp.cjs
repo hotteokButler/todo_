@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:4c478d0ae3d66ed27cff8b3b4bb7d125a92ebaf501fc5767918d225941088aa9d34fe5508089b924abbae9a0f12666b8913a587ce58fb20e645fe38ac4499720#npm:18.2.0"],\
             ["react-icons", "virtual:4c478d0ae3d66ed27cff8b3b4bb7d125a92ebaf501fc5767918d225941088aa9d34fe5508089b924abbae9a0f12666b8913a587ce58fb20e645fe38ac4499720#npm:4.8.0"],\
             ["react-scripts", "virtual:4c478d0ae3d66ed27cff8b3b4bb7d125a92ebaf501fc5767918d225941088aa9d34fe5508089b924abbae9a0f12666b8913a587ce58fb20e645fe38ac4499720#npm:5.0.1"],\
+            ["react-uuid", "npm:2.0.0"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\
@@ -14761,6 +14762,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-uuid", [\
+        ["npm:2.0.0", {\
+          "packageLocation": "./.yarn/cache/react-uuid-npm-2.0.0-110e96194a-edfdd86ce5.zip/node_modules/react-uuid/",\
+          "packageDependencies": [\
+            ["react-uuid", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["read-cache", [\
         ["npm:1.0.0", {\
           "packageLocation": "./.yarn/cache/read-cache-npm-1.0.0-00fa89ed05-cffc728b9e.zip/node_modules/read-cache/",\
@@ -16344,6 +16354,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:4c478d0ae3d66ed27cff8b3b4bb7d125a92ebaf501fc5767918d225941088aa9d34fe5508089b924abbae9a0f12666b8913a587ce58fb20e645fe38ac4499720#npm:18.2.0"],\
             ["react-icons", "virtual:4c478d0ae3d66ed27cff8b3b4bb7d125a92ebaf501fc5767918d225941088aa9d34fe5508089b924abbae9a0f12666b8913a587ce58fb20e645fe38ac4499720#npm:4.8.0"],\
             ["react-scripts", "virtual:4c478d0ae3d66ed27cff8b3b4bb7d125a92ebaf501fc5767918d225941088aa9d34fe5508089b924abbae9a0f12666b8913a587ce58fb20e645fe38ac4499720#npm:5.0.1"],\
+            ["react-uuid", "npm:2.0.0"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\

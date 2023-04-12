@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import ToDoLi from './ToDoLi';
+import style from '../css/todo_list.module.css';
 
 export default function ToDoLists() {
   const [lists, setLists] = useState(initalObj);
-  return lists.map((elem) => <ToDoLi key={elem.key} contents={elem.content} />);
+  return (
+    <ul className={style.todo_lists}>
+      {lists.map((elem) => (
+        <ToDoLi key={elem.key} contents={elem.content} />
+      ))}
+    </ul>
+  );
 }
 
 const initalObj = [

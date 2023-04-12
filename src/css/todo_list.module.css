@@ -1,0 +1,82 @@
+@charset 'utf-8';
+.todo_lists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 20rem;
+  padding: 1rem;
+}
+.todo_lists li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  margin: 0.8rem 0;
+}
+
+label[for='check_btn'] {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+  display: grid;
+  grid-template-columns: 1.1em auto;
+  gap: 0.5em;
+}
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #fff;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #fff;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+label[for='check_btn'] + label[for='check_btn'] {
+  margin-top: 1em;
+}
+
+input[type='checkbox']::before {
+  clear: both;
+  content: '';
+  width: 0.75em;
+  height: 0.7em;
+  transform: scale(0);
+  transition: 0.2s transform ease-in-out;
+  box-shadow: inset 2em 2em #f09ce5;
+  border: 2px;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+input[type='checkbox']:checked::before {
+  transform: scale(1);
+}
+input[type='checkbox']:focus {
+  outline: max(2px, 0.15em) solid #f09ce5;
+  outline-offset: max(2px, 0.15em);
+}
+
+.todo_lists button {
+  display: inline-block;
+  padding: 0.5em 0.6em 0.4em;
+  border-radius: 50%;
+  background-color: #efefef;
+  cursor: pointer;
+}
+.todo_lists button {
+  color: #f378e2;
+}
+.todo_lists button:hover {
+  color: #c10b97;
+}
+.todo_lists button:hover svg {
+  transition: 0.4s;
+  transform: rotate(20deg);
+}

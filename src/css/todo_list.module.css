@@ -3,8 +3,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 20rem;
-  padding: 1rem;
+  height: 25rem;
+  overflow: auto;
+  padding: 1rem 1.5rem;
 }
 .todo_lists li {
   width: 100%;
@@ -53,7 +54,14 @@ input[type='checkbox']::before {
   box-shadow: inset 2em 2em #f09ce5;
   border: 2px;
   transform-origin: bottom left;
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  clip-path: polygon(
+    14% 44%,
+    0 65%,
+    50% 100%,
+    100% 16%,
+    80% 0%,
+    43% 62%
+  );
 }
 input[type='checkbox']:checked::before {
   transform: scale(1);
@@ -79,4 +87,7 @@ input[type='checkbox']:focus {
 .todo_lists button:hover svg {
   transition: 0.4s;
   transform: rotate(20deg);
+}
+.note {
+  color: #fff;
 }

@@ -1,11 +1,27 @@
 @charset 'utf-8';
 .todo_lis_wrap {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(6, 6, 6);
+  background: linear-gradient(
+    128deg,
+    #979797 0%,
+    #674d5f 100%
+  );
+}
+.todo_lis_con {
   background: #433d43;
   overflow: hidden;
+  width: 80vw;
+  max-width: 40rem;
+  border-radius: 1rem;
 }
 .top {
 }
 .btm {
-  padding: 1rem 0.8rem;
+  padding: 1rem;
   background: #222;
 }

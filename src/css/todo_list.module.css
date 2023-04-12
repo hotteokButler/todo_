@@ -14,7 +14,7 @@
   margin: 0.8rem 0;
 }
 
-label[for='check_btn'] {
+.todo_lists li > label {
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 1;
@@ -39,7 +39,7 @@ input[type='checkbox'] {
   cursor: pointer;
 }
 
-label[for='check_btn'] + label[for='check_btn'] {
+.todo_lists li > label + .todo_lists li > label {
   margin-top: 1em;
 }
 

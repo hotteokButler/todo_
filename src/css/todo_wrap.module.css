@@ -5,23 +5,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(6, 6, 6);
-  background: linear-gradient(
-    128deg,
-    #979797 0%,
-    #674d5f 100%
-  );
 }
 .todo_lis_con {
-  background: #433d43;
   overflow: hidden;
   width: 80vw;
   max-width: 40rem;
   border-radius: 1rem;
+  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.2);
 }
 .top {
 }
 .btm {
   padding: 1rem;
+}
+
+/* dark */
+.dark {
+  background: #060606;
+  background: linear-gradient(128deg, #979797 0%, #674d5f 100%);
+}
+.dark .todo_lis_con {
+  background: #433d43;
+}
+.dark .btm {
   background: #222;
+}
+/* light */
+.light {
+  background: #fffdfd;
+  background: linear-gradient(128deg, #ffffff 0%, #ffe3d9 100%);
+}
+.light .todo_lis_con {
+  background: #fff;
+}
+.light .btm {
+  background: #ffe3d9;
 }

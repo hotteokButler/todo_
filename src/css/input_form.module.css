@@ -20,7 +20,17 @@
   width: 30%;
   font-size: 1.2rem;
   line-height: 2.2em;
-  background-color: #f09ce5;
   color: #fff;
   font-weight: 900;
+}
+
+/* dark */
+
+.dark .button {
+  background-color: #f09ce5;
+}
+
+/* light */
+.light .button {
+  background-color: #ff8b60;
 }

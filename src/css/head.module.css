@@ -9,16 +9,13 @@
 
 .header {
   padding: 1.3rem 1rem 1.5rem;
-  background-color: #222;
-  border-bottom: 1px solid #efefef;
+  transition: background 0.3s;
 }
 .theme_toggle {
-  color: #fff;
   font-size: 1.3rem;
   margin-top: 7px;
 }
 .nav_btn_con {
-  color: #f09ce5;
   font-weight: 700;
   font-size: 1.2rem;
 }
@@ -28,18 +25,49 @@
   cursor: pointer;
   transition: 0.4s;
 }
-.nav_btn_con li:hover {
-  color: #fcc9f5;
-}
+
 .on::after {
   content: '';
   clear: both;
   position: absolute;
   width: 110%;
   height: 2px;
-  background: #f9c8f2;
   left: 50%;
   bottom: -30%;
   border-radius: 20px;
   transform: translateX(-50%);
+}
+/* dark mode */
+.dark {
+  background-color: #222;
+  border-bottom: 1px solid #efefef;
+}
+.dark .theme_toggle {
+  color: #fff;
+}
+.dark .nav_btn_con {
+  color: #f09ce5;
+}
+.dark .nav_btn_con li:hover {
+  color: #fcc9f5;
+}
+.dark .on::after {
+  background: #f9c8f2;
+}
+/* light mode */
+.light {
+  background-color: #fdfbfa;
+  border-bottom: 1px solid #ff8f69;
+}
+.light .theme_toggle {
+  color: #ff8f69;
+}
+.light .nav_btn_con {
+  color: #ff8f69;
+}
+.light .nav_btn_con li:hover {
+  color: #fab199;
+}
+.light .on::after {
+  background: #fab199;
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import { BsFillTrash3Fill } from 'react-icons/bs';
 
-export default function ToDoLi({ contents }) {
+export default function ToDoLi({ content }) {
   return (
     <li>
       <label>
         <input type="checkbox" name="isCompleted" id="check_btn" />
-        {contents}
+        {content}
       </label>
 
       <button>

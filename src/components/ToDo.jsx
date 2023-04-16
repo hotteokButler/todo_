@@ -11,14 +11,15 @@ export default function ToDoList() {
   const [todoLists, setTodoList] = useState([]);
 
   const updateTodoList = (content) => {
-    const id = uuid();
+    const new_id = uuid();
     const newCon = {
-      id,
-      content,
+      id: new_id,
+      content: content,
       state: true,
     };
-    localStorage.setItem(uuid(), newCon);
-    setTodoList((prev) => [...prev, { id: newCon }]);
+    localStorage.setItem(uuid(), JSON.stringify(newCon));
+    setTodoList((prev) => [...prev, { ...newCon }]);
+    console.log(todoLists);
   };
 
   const deleteTodoList = (key) => {
@@ -31,8 +32,8 @@ export default function ToDoList() {
       ...localStorage.getItem(key),
       state: !localStorage.getItem(key).state,
     };
-    localStorage.setItem(key, stateChage);
-    setTodoList((prev) => [...prev, { key: stateChage }]);
+    localStorage.setItem(key, JSON.stringify(stateChage));
+    setTodoList((prev) => [...prev, { ...stateChage }]);
   };
 
   const showAcitve = () => {
@@ -44,13 +45,14 @@ export default function ToDoList() {
   };
 
   useEffect(() => {
-    localStorage.lenght > 0 &&
+    const keys = Object.keys(localStorage);
+
+    localStorage.length > 0 &&
       setTodoList((prev) => {
-        const keys = Object.keys(localStorage);
         return [
-          keys.map((key) => ({
+          ...keys.map((key) => ({
             id: key,
-            content: localStorage.getItem(key),
+            content: JSON.parse(localStorage.getItem(key)),
             state: 'active',
           })),
         ];
@@ -67,13 +69,17 @@ export default function ToDoList() {
     >
       <div className={style.todo_lis_con}>
         <div className={style.top}>
-          <Head />
+          <Head showAcitve={showAcitve} showCompeleted={showCompeleted} />
         </div>
 
-        <ToDoLists todoLists={todoLists} />
+        <ToDoLists
+          todoLists={todoLists}
+          changeTodoListState={changeTodoListState}
+          deleteTodoList={deleteTodoList}
+        />
 
         <div className={style.btm}>
-          <InputForm />
+          <InputForm updateTodoList={updateTodoList} />
         </div>
       </div>
     </div>

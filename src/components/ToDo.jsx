@@ -19,7 +19,6 @@ export default function ToDoList() {
     };
     localStorage.setItem(uuid(), JSON.stringify(newCon));
     setTodoList((prev) => [...prev, { ...newCon }]);
-    console.log(todoLists);
   };
 
   const deleteTodoList = (key) => {
@@ -52,7 +51,7 @@ export default function ToDoList() {
         return [
           ...keys.map((key) => ({
             id: key,
-            content: JSON.parse(localStorage.getItem(key)),
+            content: JSON.parse(localStorage.getItem(key)).content,
             state: 'active',
           })),
         ];

@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ToDoLi from './ToDoLi';
 import style from '../css/todo_list.module.css';
 import { DarkModeContext } from '../context/DarkModeContext';
 
-export default function ToDoLists() {
-  const [lists, setLists] = useState([{ content: '밥' }]);
+export default function ToDoLists({ todoLists }) {
   const { darkMode } = useContext(DarkModeContext);
   return (
     <>
@@ -13,8 +12,10 @@ export default function ToDoLists() {
           darkMode ? style['dark'] : style['light']
         }`}
       >
-        {lists.length > 0 ? (
-          lists.map((elem, idx) => <ToDoLi key={idx} contents={elem.content} />)
+        {todoLists.length > 0 ? (
+          todoLists.map((elem, idx) => (
+            <ToDoLi key={idx} contents={elem.content} />
+          ))
         ) : (
           <span className={style.note}>내용을 입력해주세요</span>
         )}

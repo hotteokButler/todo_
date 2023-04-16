@@ -16,8 +16,8 @@ export default function Head() {
           {darkMode ? <BsFillMoonStarsFill /> : <BsFillSunFill />}
         </button>
         <ul className={`${styles.flx_c} ${styles.nav_btn_con}`}>
-          <li>All</li>
-          <li className={styles.on}>Active</li>
+          <li className={styles.on}>All</li>
+          <li>Active</li>
           <li>Completed</li>
         </ul>
       </nav>

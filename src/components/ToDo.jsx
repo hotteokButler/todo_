@@ -15,7 +15,7 @@ export default function ToDoList() {
     const newCon = {
       id: new_id,
       content: content,
-      state: true,
+      state: false,
     };
     localStorage.setItem(uuid(), JSON.stringify(newCon));
     setTodoList((prev) => [...prev, { ...newCon }]);
@@ -23,40 +23,45 @@ export default function ToDoList() {
 
   const deleteTodoList = (key) => {
     localStorage.removeItem(key);
-    setTodoList((prev) => prev.filter((elem) => elem.id !== key));
+    setTodoList((prev) => prev.filter((li) => li.id !== key));
   };
 
   const changeTodoListState = (key) => {
-    const stateChange = {
-      ...JSON.parse(localStorage.getItem(key)),
-      state: !JSON.parse(localStorage.getItem(key)).state,
-    };
-    console.log(stateChange);
-    localStorage.setItem(key, JSON.stringify(stateChange));
-    setTodoList((prev) => [...prev, { ...stateChange }]);
+    setTodoList((prev) =>
+      prev.map((li) => {
+        if (li.id === key) {
+          const newLi = { ...li, state: !li.state };
+          localStorage.setItem(key, JSON.stringify(newLi));
+          return newLi;
+        } else {
+          return li;
+        }
+      })
+    );
   };
 
+  const showAll = () => {
+    const keys = Object.keys(localStorage);
+
+    setTodoList((prev) => {
+      return keys.map((key) => ({
+        id: key,
+        content: JSON.parse(localStorage.getItem(key)).content,
+        state: JSON.parse(localStorage.getItem(key)).state,
+      }));
+    });
+  };
   const showAcitve = () => {
-    setTodoList((prev) => prev.filter((li) => li.state));
+    showAll();
+    setTodoList((prev) => prev.filter((li) => li.state !== true));
   };
-
   const showCompeleted = () => {
-    setTodoList((prev) => prev.filter((li) => !li.state));
+    showAll();
+    setTodoList((prev) => prev.filter((li) => li.state === true));
   };
 
   useEffect(() => {
-    const keys = Object.keys(localStorage);
-
-    keys.length > 0 &&
-      setTodoList((prev) => {
-        return [
-          ...keys.map((key) => ({
-            id: key,
-            content: JSON.parse(localStorage.getItem(key)).content,
-            state: 'active',
-          })),
-        ];
-      });
+    localStorage.length > 0 && showAll();
 
     return;
   }, []);
@@ -69,7 +74,11 @@ export default function ToDoList() {
     >
       <div className={style.todo_lis_con}>
         <div className={style.top}>
-          <Head showAcitve={showAcitve} showCompeleted={showCompeleted} />
+          <Head
+            showAll={showAll}
+            showAcitve={showAcitve}
+            showCompeleted={showCompeleted}
+          />
         </div>
 
         <ToDoLists

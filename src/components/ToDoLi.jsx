@@ -1,15 +1,11 @@
 import React from 'react';
 import { BsFillTrash3Fill } from 'react-icons/bs';
 
-export default function ToDoLi({
-  content,
-  id,
-  changeTodoListState,
-  deleteTodoList,
-}) {
+export default function ToDoLi({ elem, changeTodoListState, deleteTodoList }) {
+  const { id, content, state } = elem;
   return (
     <li>
-      <label>
+      <label className={state ? 'done' : 'active'}>
         <input
           type="checkbox"
           name="isCompleted"
@@ -17,6 +13,7 @@ export default function ToDoLi({
           onChange={() => {
             changeTodoListState(id);
           }}
+          checked={state ? true : false}
         />
         {content}
       </label>

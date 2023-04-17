@@ -3,8 +3,9 @@ import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs';
 import styles from '../css/head.module.css';
 import { DarkModeContext } from '../context/DarkModeContext';
 
-export default function Head() {
+export default function Head({ showAll, showAcitve, showCompeleted }) {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+
   return (
     <header
       className={`${styles.header} ${
@@ -16,9 +17,9 @@ export default function Head() {
           {darkMode ? <BsFillMoonStarsFill /> : <BsFillSunFill />}
         </button>
         <ul className={`${styles.flx_c} ${styles.nav_btn_con}`}>
-          <li className={styles.on}>All</li>
-          <li>Active</li>
-          <li>Completed</li>
+          <li onClick={showAll}>All</li>
+          <li onClick={showAcitve}>Active</li>
+          <li onClick={showCompeleted}>Completed</li>
         </ul>
       </nav>
     </header>

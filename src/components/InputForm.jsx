@@ -14,6 +14,7 @@ export default function InputForm({ updateTodoList }) {
       onSubmit={(e) => {
         e.preventDefault();
         updateTodoList(content);
+        e.target.reset();
       }}
     >
       <input

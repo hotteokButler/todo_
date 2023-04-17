@@ -27,12 +27,13 @@ export default function ToDoList() {
   };
 
   const changeTodoListState = (key) => {
-    const stateChage = {
-      ...localStorage.getItem(key),
-      state: !localStorage.getItem(key).state,
+    const stateChange = {
+      ...JSON.parse(localStorage.getItem(key)),
+      state: !JSON.parse(localStorage.getItem(key)).state,
     };
-    localStorage.setItem(key, JSON.stringify(stateChage));
-    setTodoList((prev) => [...prev, { ...stateChage }]);
+    console.log(stateChange);
+    localStorage.setItem(key, JSON.stringify(stateChange));
+    setTodoList((prev) => [...prev, { ...stateChange }]);
   };
 
   const showAcitve = () => {
@@ -46,7 +47,7 @@ export default function ToDoList() {
   useEffect(() => {
     const keys = Object.keys(localStorage);
 
-    localStorage.length > 0 &&
+    keys.length > 0 &&
       setTodoList((prev) => {
         return [
           ...keys.map((key) => ({

@@ -25,7 +25,7 @@
   transition: 0.4s;
 }
 
-.on::after {
+.nav_btn_con li.on::after {
   content: '';
   clear: both;
   position: absolute;
@@ -50,7 +50,7 @@
 .dark .nav_btn_con li:hover {
   color: #fcc9f5;
 }
-.dark .on::after {
+.dark .nav_btn_con li.on::after {
   background: #f9c8f2;
 }
 /* light mode */
@@ -67,6 +67,6 @@
 .light .nav_btn_con li:hover {
   color: #fab199;
 }
-.light .on::after {
+.light .nav_btn_con li.on::after {
   background: #fab199;
 }

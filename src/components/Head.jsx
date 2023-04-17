@@ -5,7 +5,7 @@ import { DarkModeContext } from '../context/DarkModeContext';
 
 export default function Head({ showAll, showAcitve, showCompeleted }) {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-
+  const toggleOn = (target) => {};
   return (
     <header
       className={`${styles.header} ${
@@ -16,7 +16,12 @@ export default function Head({ showAll, showAcitve, showCompeleted }) {
         <button className={styles.theme_toggle} onClick={toggleDarkMode}>
           {darkMode ? <BsFillMoonStarsFill /> : <BsFillSunFill />}
         </button>
-        <ul className={`${styles.flx_c} ${styles.nav_btn_con}`}>
+        <ul
+          className={`${styles.flx_c} ${styles.nav_btn_con}`}
+          onClick={(e) => {
+            toggleOn(e.target);
+          }}
+        >
           <li onClick={showAll}>All</li>
           <li onClick={showAcitve}>Active</li>
           <li onClick={showCompeleted}>Completed</li>

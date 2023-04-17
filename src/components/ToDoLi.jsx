@@ -5,7 +5,13 @@ export default function ToDoLi({ elem, changeTodoListState, deleteTodoList }) {
   const { id, content, state } = elem;
   return (
     <li>
-      <label className={state ? 'done' : 'active'}>
+      <label
+        style={
+          state
+            ? { opacity: '0.3', textDecoration: 'line-through' }
+            : { opacity: '1' }
+        }
+      >
         <input
           type="checkbox"
           name="isCompleted"

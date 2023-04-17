@@ -122,7 +122,3 @@ input[type='checkbox']:focus {
 .light .note {
   color: #fff;
 }
-label.done {
-  text-decoration: line-through;
-  opacity: 0.3;
-}

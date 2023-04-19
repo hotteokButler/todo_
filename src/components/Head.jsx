@@ -1,19 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs';
 import styles from '../css/head.module.css';
 import { DarkModeContext } from '../context/DarkModeContext';
 
 export default function Head({ showAll, showAcitve, showCompeleted }) {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-  const toggleOn = (event) => {
-    const target = event.target;
-    if (target.nodeName === 'LI') {
-      Object.values(event.currentTarget.children).forEach((elem) => {
-        elem.classList.contains('on') && elem.classList.remove('on');
-      });
-      target.classList.add('on');
+  const [currentTab, setCurrentTab] = useState('All');
+  const menuArr = [
+    { name: 'All', action: 'showAll' },
+    { name: 'Active', action: 'showActive' },
+    { name: 'Complete', action: 'showCompeleted' },
+  ];
+
+  const handleTabAction = (elem) => {
+    setCurrentTab(elem.name);
+    switch (elem.action) {
+      case 'showAll':
+        showAll();
+        break;
+      case 'showActive':
+        showAcitve();
+        break;
+      case 'showCompeleted':
+        showCompeleted();
+        break;
+
+      default:
+        break;
     }
   };
+
   return (
     <header
       className={`${styles.header} ${
@@ -24,15 +40,16 @@ export default function Head({ showAll, showAcitve, showCompeleted }) {
         <button className={styles.theme_toggle} onClick={toggleDarkMode}>
           {darkMode ? <BsFillMoonStarsFill /> : <BsFillSunFill />}
         </button>
-        <ul
-          className={`${styles.flx_c} ${styles.nav_btn_con}`}
-          onClick={(e) => {
-            toggleOn(e);
-          }}
-        >
-          <li onClick={showAll}>All</li>
-          <li onClick={showAcitve}>Active</li>
-          <li onClick={showCompeleted}>Completed</li>
+        <ul className={`${styles.flx_c} ${styles.nav_btn_con}`}>
+          {menuArr.map((el, idx) => (
+            <li
+              key={idx}
+              className={el.name === currentTab ? styles['on'] : ''}
+              onClick={() => handleTabAction(el)}
+            >
+              {el.name}
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

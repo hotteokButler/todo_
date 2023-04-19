@@ -86,3 +86,4 @@ const handleTabAction = (elem) => {
 
 ### 4. 오류 수정 리스트
  - 다른탭에 갔다가 all로 돌아가면 중복값 생김
+ - 정렬

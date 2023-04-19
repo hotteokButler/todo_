@@ -14,6 +14,7 @@ export default function Head({ showAll, showAcitve, showCompeleted }) {
 
   const handleTabAction = (elem) => {
     setCurrentTab(elem.name);
+
     switch (elem.action) {
       case 'showAll':
         showAll();

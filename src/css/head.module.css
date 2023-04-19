@@ -18,14 +18,14 @@
   font-weight: 700;
   font-size: 1.2rem;
 }
-.nav_btn_con li {
+.nav_btn_con > li {
   position: relative;
   margin: 0 0 0 1.2rem;
   cursor: pointer;
   transition: 0.4s;
 }
 
-.nav_btn_con li.on::after {
+.nav_btn_con > li.on::after {
   content: '';
   clear: both;
   position: absolute;

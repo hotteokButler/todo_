@@ -5,7 +5,15 @@ import { DarkModeContext } from '../context/DarkModeContext';
 
 export default function Head({ showAll, showAcitve, showCompeleted }) {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-  const toggleOn = (target) => {};
+  const toggleOn = (event) => {
+    const target = event.target;
+    if (target.nodeName === 'LI') {
+      Object.values(event.currentTarget.children).forEach((elem) => {
+        elem.classList.contains('on') && elem.classList.remove('on');
+      });
+      target.classList.add('on');
+    }
+  };
   return (
     <header
       className={`${styles.header} ${
@@ -19,7 +27,7 @@ export default function Head({ showAll, showAcitve, showCompeleted }) {
         <ul
           className={`${styles.flx_c} ${styles.nav_btn_con}`}
           onClick={(e) => {
-            toggleOn(e.target);
+            toggleOn(e);
           }}
         >
           <li onClick={showAll}>All</li>

@@ -11,11 +11,12 @@ export default function ToDoLi({ elem, changeTodoListState, deleteTodoList }) {
             ? { opacity: '0.3', textDecoration: 'line-through' }
             : { opacity: '1' }
         }
+        htmlFor={id}
       >
         <input
           type="checkbox"
           name="isCompleted"
-          id="check_btn"
+          id={id}
           onChange={() => {
             changeTodoListState(id);
           }}

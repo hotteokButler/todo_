@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import style from '../css/input_form.module.css';
-import { DarkModeContext } from '../context/DarkModeContext';
+import { useDarkMode } from '../context/DarkModeContext';
 
 export default function InputForm({ updateTodoList }) {
-  const { darkMode } = useContext(DarkModeContext);
+  const { darkMode } = useDarkMode();
   const [content, setContent] = useState('');
   return (
     <form

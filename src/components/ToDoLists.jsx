@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import ToDoLi from './ToDoLi';
 import style from '../css/todo_list.module.css';
-import { DarkModeContext } from '../context/DarkModeContext';
+import { useDarkMode } from '../context/DarkModeContext';
 
 export default function ToDoLists({
   todoLists,
   changeTodoListState,
   deleteTodoList,
 }) {
-  const { darkMode } = useContext(DarkModeContext);
+  const { darkMode } = useDarkMode();
   return (
     <ul
       className={`${style.todo_lists} ${

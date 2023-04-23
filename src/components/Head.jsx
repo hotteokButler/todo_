@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs';
 import styles from '../css/head.module.css';
-import { DarkModeContext } from '../context/DarkModeContext';
+import { useDarkMode } from '../context/DarkModeContext';
 
 export default function Head({ handleFilter }) {
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const [currentTab, setCurrentTab] = useState('All');
   const menuArr = [
     { name: 'All', action: 'showAll' },

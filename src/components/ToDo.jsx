@@ -3,11 +3,11 @@ import Head from './Head';
 import InputForm from './InputForm';
 import ToDoLists from './ToDoLists';
 import style from '../css/todo_wrap.module.css';
-import { DarkModeContext } from '../context/DarkModeContext';
+import { useDarkMode } from '../context/DarkModeContext';
 import uuid from 'react-uuid';
 
 export default function ToDoList() {
-  const { darkMode } = useContext(DarkModeContext);
+  const { darkMode } = useDarkMode();
   const [todoLists, setTodoList] = useState([]);
 
   const updateTodoList = (content) => {

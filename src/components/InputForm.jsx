@@ -15,6 +15,7 @@ export default function InputForm({ updateTodoList }) {
         e.preventDefault();
         updateTodoList(content);
         e.target.reset();
+        setContent('');
       }}
     >
       <input

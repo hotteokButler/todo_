@@ -17,39 +17,41 @@ export default function ToDoList() {
       content: content,
       state: false,
     };
-    localStorage.setItem(uuid(), JSON.stringify(newCon));
-    setTodoList((prev) => [...prev, { ...newCon }]);
+
+    setTodoList((prev) => {
+      const newList = [...prev, { ...newCon }];
+      localStorage.setItem('toDos', JSON.stringify(newList));
+
+      return newList;
+    });
   };
 
   const deleteTodoList = (key) => {
-    localStorage.removeItem(key);
-    setTodoList((prev) => prev.filter((li) => li.id !== key));
+    setTodoList((prev) => {
+      const newList = prev.filter((li) => li.id !== key);
+      localStorage.setItem('toDos', JSON.stringify(newList));
+      return newList;
+    });
   };
 
   const changeTodoListState = (key) => {
-    setTodoList((prev) =>
-      prev.map((li) => {
+    setTodoList((prev) => {
+      const newList = prev.filter((li) => {
         if (li.id === key) {
-          const newLi = { ...li, state: !li.state };
-          localStorage.setItem(key, JSON.stringify(newLi));
-          return newLi;
+          const state = li.state;
+          console.log({ ...li, state: !state });
+          return { ...li, state: !state };
         } else {
           return li;
         }
-      })
-    );
+      });
+      localStorage.setItem('toDos', JSON.stringify(newList));
+      return newList;
+    });
   };
 
   const showAll = () => {
-    const keys = Object.keys(localStorage);
-
-    setTodoList((prev) => {
-      return keys.map((key) => ({
-        id: key,
-        content: JSON.parse(localStorage.getItem(key)).content,
-        state: JSON.parse(localStorage.getItem(key)).state,
-      }));
-    });
+    setTodoList((prev) => JSON.parse(localStorage.getItem('toDos')));
   };
   const showAcitve = () => {
     showAll();

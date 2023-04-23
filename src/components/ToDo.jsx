@@ -36,15 +36,15 @@ export default function ToDoList() {
 
   const changeTodoListState = (key) => {
     setTodoList((prev) => {
-      const newList = prev.filter((li) => {
+      const newList = prev.map((li) => {
         if (li.id === key) {
           const state = li.state;
-          console.log({ ...li, state: !state });
           return { ...li, state: !state };
         } else {
           return li;
         }
       });
+      console.log(newList);
       localStorage.setItem('toDos', JSON.stringify(newList));
       return newList;
     });

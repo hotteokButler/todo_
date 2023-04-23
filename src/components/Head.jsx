@@ -3,7 +3,7 @@ import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs';
 import styles from '../css/head.module.css';
 import { DarkModeContext } from '../context/DarkModeContext';
 
-export default function Head({ showAll, showAcitve, showCompeleted }) {
+export default function Head({ handleFilter }) {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const [currentTab, setCurrentTab] = useState('All');
   const menuArr = [
@@ -14,21 +14,7 @@ export default function Head({ showAll, showAcitve, showCompeleted }) {
 
   const handleTabAction = (elem) => {
     setCurrentTab(elem.name);
-
-    switch (elem.action) {
-      case 'showAll':
-        showAll();
-        break;
-      case 'showActive':
-        showAcitve();
-        break;
-      case 'showCompeleted':
-        showCompeleted();
-        break;
-
-      default:
-        break;
-    }
+    handleFilter(elem.action);
   };
 
   return (

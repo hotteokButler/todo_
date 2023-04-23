@@ -52,13 +52,20 @@ export default function ToDoList() {
   const showAll = () => {
     setTodoList((prev) => JSON.parse(localStorage.getItem('toDos')));
   };
-  const showAcitve = () => {
+
+  const handleFilter = (filterAction) => {
     showAll();
-    setTodoList((prev) => prev.filter((li) => li.state !== true));
-  };
-  const showCompeleted = () => {
-    showAll();
-    setTodoList((prev) => prev.filter((li) => li.state === true));
+    switch (filterAction) {
+      case 'showActive':
+        setTodoList((prev) => prev.filter((li) => li.state !== true));
+        break;
+      case 'showCompeleted':
+        setTodoList((prev) => prev.filter((li) => li.state === true));
+        break;
+
+      default:
+        break;
+    }
   };
 
   useEffect(() => {
@@ -75,11 +82,7 @@ export default function ToDoList() {
     >
       <div className={style.todo_lis_con}>
         <div className={style.top}>
-          <Head
-            showAll={showAll}
-            showAcitve={showAcitve}
-            showCompeleted={showCompeleted}
-          />
+          <Head handleFilter={handleFilter} />
         </div>
 
         <ToDoLists

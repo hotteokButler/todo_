@@ -13,6 +13,7 @@ export default function InputForm({ updateTodoList }) {
       }`}
       onSubmit={(e) => {
         e.preventDefault();
+        if (content.trim().length === 0) return;
         updateTodoList(content);
         e.target.reset();
         setContent('');

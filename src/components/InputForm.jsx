@@ -24,7 +24,7 @@ export default function InputForm({ updateTodoList }) {
         name=""
         id="wr_list"
         placeholder="Add Todo"
-        onChange={(e) => setContent(e.target.value)}
+        onChange={(e) => setContent(e.target.value.trim())}
       />
       <button type="submit" className={style.button}>
         Add

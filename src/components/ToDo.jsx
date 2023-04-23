@@ -44,7 +44,6 @@ export default function ToDoList() {
           return li;
         }
       });
-      console.log(newList);
       localStorage.setItem('toDos', JSON.stringify(newList));
       return newList;
     });
